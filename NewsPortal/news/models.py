@@ -29,7 +29,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.ManyToManyField(Category, through="PostCategory")
     title = models.TextField()
-    text = models.TextField
+    text = models.TextField()
     rating = models.IntegerField(default=0)
 
     def like(self):
@@ -53,7 +53,7 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
-    text = models.TextField
+    text = models.TextField()
     rating = models.IntegerField(default=0)
 
     def like(self):
