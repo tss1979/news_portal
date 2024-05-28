@@ -34,9 +34,11 @@ class Post(models.Model):
 
     def like(self):
         self.rating += 1
+        self.save()
 
     def dislike(self):
         self.rating += -1
+        self.save()
 
     def preview(self):
         return self.text[:124] + '...'
@@ -56,8 +58,10 @@ class Comment(models.Model):
 
     def like(self):
         self.rating += 1
+        self.save()
 
     def dislike(self):
         self.rating += -1
+        self.save()
 
 
