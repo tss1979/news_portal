@@ -10,6 +10,9 @@ class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     rating = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.user.username
+
     def update_rating(self):
         rating_posts = [int(x.get('rating')) for x in Post.objects.filter(author=self.pk).values('rating')]
         rating_comments = [int(x.get('rating')) for x in Comment.objects.filter(user=self.pk).values('rating')]
@@ -21,6 +24,9 @@ class Author(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=255, unique=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Post(models.Model):

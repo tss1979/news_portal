@@ -23,3 +23,8 @@ def censor(value):
         return ' '.join(result)
     else:
         raise TypeError
+
+
+@register.filter()
+def minus(value, arg):
+    return value - int(arg)
