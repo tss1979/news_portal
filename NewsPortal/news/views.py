@@ -1,12 +1,15 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView
-from .models import Post, PostCategory
+from django.views.generic.edit import CreateView
+from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Post, PostCategory, BaseRegisterForm
 from .filters import PostFilter
 from .forms import PostForm
 
 
 # Create your views here.
-class PostsList(ListView):
+class PostsList(LoginRequiredMixin, ListView):
     model = Post
     ordering = '-created_at'
     template_name = 'posts.html'
@@ -69,3 +72,9 @@ class PostDelete(DeleteView):
     model = Post
     template_name = 'post_delete.html'
     success_url = '/news'
+
+
+class BaseRegisterView(CreateView):
+    model = User
+    form_class = BaseRegisterForm
+    success_url = '/'

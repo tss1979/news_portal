@@ -1,0 +1,46 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+    Post
+{% endblock title %}
+
+{% block load %}
+    {% load static %}
+    {% load custom_filters %}
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+{% endblock load %}
+
+{% block content %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+            <div class="container px-4">
+                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                </div>
+            </div>
+        </nav>
+        <section style="padding: 50px">
+            <h2> Login </h2>
+            <form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<table>
+<tr>
+    <td>{{ form.username.label_tag }}</td>
+    <td>{{ form.username }}</td>
+</tr>
+<tr>
+    <td>{{ form.password.label_tag }}</td>
+    <td>{{ form.password }}</td>
+</tr>
+</table>
+
+<input type="submit" value="Войти">
+</form>
+            <button> <a href="../../signup"> Signup </a></button>
+        </section>
+        <!-- About section-->
+        <footer class="py-5 bg-dark">
+            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+        </footer>
+
+{% endblock content %}
