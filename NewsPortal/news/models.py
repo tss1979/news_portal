@@ -6,8 +6,8 @@ from django import forms
 
 KIND = ['N', 'A']
 
-KIND_DICT = {'N': 'Новости', 'A': 'Статья'}
-
+# KIND_DICT = {'N': 'News', 'A': 'Article'}
+KIND_DICT = [('N', 'News'), ('A', 'Article')]
 
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
