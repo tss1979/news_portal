@@ -75,7 +75,7 @@ def create_post(request):
         return HttpResponseRedirect('/news')
 
 
-class PostUpdate(UpdateView, PermissionRequiredMixin):
+class PostUpdate(PermissionRequiredMixin, UpdateView):
     permission_required = ('news.change_post',)
     form_class = PostForm
     model = Post
@@ -83,7 +83,7 @@ class PostUpdate(UpdateView, PermissionRequiredMixin):
     success_url = '/news'
 
 
-class PostDelete(DeleteView, PermissionRequiredMixin):
+class PostDelete(PermissionRequiredMixin, DeleteView):
     permission_required = ('news.delete_post',)
     model = Post
     template_name = 'post_delete.html'
