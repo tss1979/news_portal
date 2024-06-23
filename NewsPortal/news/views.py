@@ -1,4 +1,8 @@
+from django.core.signals import request_finished
+from django.db.models.signals import pre_save, post_save
+from django.dispatch import receiver
 from django.shortcuts import render, HttpResponseRedirect
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from django.views.generic.edit import CreateView
 from django.contrib.auth.models import User
@@ -6,6 +10,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post, PostCategory, BaseRegisterForm
 from .filters import PostFilter
 from .forms import PostForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
+from django.shortcuts import redirect
 
 
 # Create your views here.
@@ -15,6 +22,11 @@ class PostsList(LoginRequiredMixin, ListView):
     template_name = 'posts.html'
     context_object_name = 'posts'
     paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_not_author'] = not self.request.user.groups.filter(name='authors').exists()
+        return context
 
 
 class PostsListSearch(ListView):
@@ -42,33 +54,37 @@ class PostDetail(DetailView):
 
 
 def create_post(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST)
-        url = str(request.path.split('/')[2])
-        if form.is_valid():
-            instance = form.save(commit=False)
-            if url == 'articles':
-                instance.post_kind = 'A'
-            elif url == 'news':
-                instance.post_kind = 'N'
-            instance.save()
-            for el in dict(request.POST)['category']:
-                cat = PostCategory.objects.create(category_id=el, post_id=Post.objects.last().pk)
-                cat.save()
-            return HttpResponseRedirect('/news')
+    if request.user.groups.filter(name='authors').exists():
+        if request.method == 'POST':
+            form = PostForm(request.POST)
+            url = str(request.path.split('/')[2])
+            if form.is_valid():
+                instance = form.save(commit=False)
+                if url == 'articles':
+                    instance.post_kind = 'A'
+                elif url == 'news':
+                    instance.post_kind = 'N'
+                instance.save()
+                for el in dict(request.POST)['category']:
+                    cat = PostCategory.objects.create(category_id=el, post_id=Post.objects.last().pk)
+                    cat.save()
+                return HttpResponseRedirect('/news')
+        form = PostForm()
+        return render(request, 'post_edit.html', {'form': form})
+    else:
+        return HttpResponseRedirect('/news')
 
-    form = PostForm()
-    return render(request, 'post_edit.html', {'form': form})
 
-
-class PostUpdate(UpdateView):
+class PostUpdate(UpdateView, PermissionRequiredMixin):
+    permission_required = ('news.change_post',)
     form_class = PostForm
     model = Post
     template_name = 'post_edit.html'
     success_url = '/news'
 
 
-class PostDelete(DeleteView):
+class PostDelete(DeleteView, PermissionRequiredMixin):
+    permission_required = ('news.delete_post',)
     model = Post
     template_name = 'post_delete.html'
     success_url = '/news'
@@ -78,3 +94,19 @@ class BaseRegisterView(CreateView):
     model = User
     form_class = BaseRegisterForm
     success_url = '/'
+
+
+@receiver(post_save, sender=User)
+def update_user_profile(sender, instance, created, **kwargs):
+    user = instance
+    common_group = Group.objects.get(name='common')
+    common_group.user_set.add(user)
+
+
+@login_required
+def upgrade_me(request):
+    user = request.user
+    author_group = Group.objects.get(name='authors')
+    if not request.user.groups.filter(name='authors').exists():
+        author_group.user_set.add(user)
+    return redirect('/news')
