@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from .views import PostsList, PostDetail, PostsListSearch, create_post, PostUpdate, PostDelete,  \
-    BaseRegisterView, upgrade_me
+    BaseRegisterView, upgrade_me, subscribe
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
@@ -17,6 +17,7 @@ urlpatterns = [
     path('signup', BaseRegisterView.as_view(template_name='signup.html'), name='signup'),
     path('news/login/', LoginView.as_view(template_name='login.html'), name='login'),
     path('logout', LogoutView.as_view(template_name='logout.html'), name='logout'),
-    path('upgrade/', upgrade_me, name='upgrade')
+    path('upgrade/', upgrade_me, name='upgrade'),
+    path('subscribe', subscribe, name='subscribe')
 ]
 

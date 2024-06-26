@@ -1,5 +1,4 @@
-from django.core.signals import request_finished
-from django.db.models.signals import pre_save, post_save
+from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.mixins import PermissionRequiredMixin
@@ -7,12 +6,13 @@ from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from django.views.generic.edit import CreateView
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Post, PostCategory, BaseRegisterForm
+from .models import Post, PostCategory, BaseRegisterForm, Category, Author
 from .filters import PostFilter
-from .forms import PostForm
+from .forms import PostForm, SubscribeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.shortcuts import redirect
+from django.core.mail import send_mail
 
 
 # Create your views here.
@@ -51,6 +51,18 @@ class PostDetail(DetailView):
     model = Post
     template_name = 'post.html'
     context_object_name = 'post'
+
+
+def subscribe(request):
+    if request.method == 'POST':
+        form = SubscribeForm(request.POST)
+        if form.is_valid():
+            for el in dict(request.POST)['category']:
+                cat = Category.objects.get(pk=el)
+                cat.user.add(request.user)
+            return HttpResponseRedirect('/news')
+    form = SubscribeForm()
+    return render(request, 'subscribe.html', {'form': form})
 
 
 def create_post(request):
@@ -101,6 +113,13 @@ def update_user_profile(sender, instance, created, **kwargs):
     user = instance
     common_group = Group.objects.get(name='common')
     common_group.user_set.add(user)
+    send_mail(
+        subject='Welcome to the NewsPortal',
+        message='Greeting from The NewsPortal',
+        from_email='tash1979@rambler.ru',
+        recipient_list=[user.email]
+    )
+
 
 
 @login_required
@@ -109,4 +128,6 @@ def upgrade_me(request):
     author_group = Group.objects.get(name='authors')
     if not request.user.groups.filter(name='authors').exists():
         author_group.user_set.add(user)
+        author = Author.objects.create(user=user)
+        author.save()
     return redirect('/news')
