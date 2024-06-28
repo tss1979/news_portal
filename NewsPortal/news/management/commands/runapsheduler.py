@@ -25,7 +25,7 @@ def my_job():
         mails = [user.email for user in category.user.all()]
         posts = Post.objects.filter(created_at__gte=period)
         titles = [post.title for post in posts]
-        links = ['http://127.0.0.1:8000/news/' + post.pk for post in posts]
+        links = ['http://127.0.0.1:8000/news/' + str(post.pk) for post in posts]
         for t, l in zip(titles, links):
             message += f'{t} - {l}\n'
         send_mail(

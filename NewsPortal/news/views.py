@@ -108,20 +108,6 @@ class BaseRegisterView(CreateView):
     success_url = '/'
 
 
-@receiver(post_save, sender=User)
-def update_user_profile(sender, instance, created, **kwargs):
-    user = instance
-    common_group = Group.objects.get(name='common')
-    common_group.user_set.add(user)
-    send_mail(
-        subject='Welcome to the NewsPortal',
-        message='Greeting from The NewsPortal',
-        from_email='tash1979@rambler.ru',
-        recipient_list=[user.email]
-    )
-
-
-
 @login_required
 def upgrade_me(request):
     user = request.user
