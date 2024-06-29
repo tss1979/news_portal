@@ -12,7 +12,7 @@ from django_apscheduler.models import DjangoJobExecution
 from django_apscheduler import util
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
-from NewsPortal.news.models import Category, Post
+from news.models import Category, Post
 
 logger = logging.getLogger(__name__)
 
@@ -29,7 +29,7 @@ def my_job():
         for t, l in zip(titles, links):
             message += f'{t} - {l}\n'
         send_mail(
-            subject='Welcome to the NewsPortal - New Posts',
+            subject='Greeting from NewsPortal - New Posts',
             message=message,
             from_email='tashkinov2@gmail.com',
             recipient_list=mails
@@ -61,7 +61,7 @@ class Command(BaseCommand):
 
         scheduler.add_job(
             my_job,
-            trigger=CronTrigger(second="*/60*60*24*7"),  # Every 1 week
+            trigger=CronTrigger(week="*/1"),  # Every 1 week
             id="my_job",  # The `id` assigned to each job MUST be unique
             max_instances=1,
             replace_existing=True,

@@ -1,15 +1,15 @@
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, m2m_changed
 from django.dispatch import receiver
 from django.core.mail import send_mail
-from .models import Post, PostCategory
+from .models import PostCategory
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
 
 
-@receiver(post_save, sender=Post)
-def notify_managers_appointment(sender, instance, created, **kwargs):
-    if created:
-        subject = f'New News - {instance.title}'
+@receiver(m2m_changed, sender=PostCategory)
+def notify_managers_appointment(sender, instance, **kwargs):
+    if kwargs['action'] == 'post_add':
+        subject = f'New - {instance.title}'
         message = 'http://127.0.0.1:8000/news/' + str(instance.pk)
         categories = instance.category.all()
         mails = []
@@ -17,13 +17,12 @@ def notify_managers_appointment(sender, instance, created, **kwargs):
             for user in category.user.all():
                 if user.email not in mails:
                     mails.append(user.email)
-        print(instance.pk)
-        # send_mail(
-        #     subject=subject,
-        #     message=message,
-        #     from_email='tashkinov2@gmail.com',
-        #     recipient_list=mails
-        # )
+        send_mail(
+            subject=subject,
+            message=message,
+            from_email='tashkinov2@gmail.com',
+            recipient_list=mails
+        )
 
 
 @receiver(post_save, sender=User)

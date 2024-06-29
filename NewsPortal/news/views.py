@@ -1,5 +1,3 @@
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView
@@ -117,3 +115,4 @@ def upgrade_me(request):
         author = Author.objects.create(user=user)
         author.save()
     return redirect('/news')
+
