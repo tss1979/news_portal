@@ -4,25 +4,13 @@ from django.core.mail import send_mail
 from .models import PostCategory
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
+from .tasks import send_notification_post_created
 
 
 @receiver(m2m_changed, sender=PostCategory)
 def notify_managers_appointment(sender, instance, **kwargs):
     if kwargs['action'] == 'post_add':
-        subject = f'New - {instance.title}'
-        message = 'http://127.0.0.1:8000/news/' + str(instance.pk)
-        categories = instance.category.all()
-        mails = []
-        for category in categories:
-            for user in category.user.all():
-                if user.email not in mails:
-                    mails.append(user.email)
-        send_mail(
-            subject=subject,
-            message=message,
-            from_email='tashkinov2@gmail.com',
-            recipient_list=mails
-        )
+        send_notification_post_created.apply_async(instance=instance)
 
 
 @receiver(post_save, sender=User)
