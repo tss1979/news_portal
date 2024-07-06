@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+from django.core.cache import cache
 
 
 KIND = ['N', 'A']
@@ -42,6 +43,10 @@ class Post(models.Model):
     title = models.TextField()
     text = models.TextField()
     rating = models.IntegerField(default=0)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        cache.delete(f'product-{self.pk}')
 
     def like(self):
         self.rating += 1

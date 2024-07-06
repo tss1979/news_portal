@@ -3,11 +3,13 @@ from django.urls import path, include
 from .views import PostsList, PostDetail, PostsListSearch, create_post, PostUpdate, PostDelete,  \
     BaseRegisterView, upgrade_me, subscribe
 from django.contrib.auth.views import LoginView, LogoutView
+from django.views.decorators.cache import cache_page
+
 
 urlpatterns = [
-    path('', PostsList.as_view()),
+    path('', cache_page(60)(PostsList.as_view())),
     path('<int:pk>', PostDetail.as_view()),
-    path('search', PostsListSearch.as_view()),
+    path('search', cache_page(300)(PostsListSearch.as_view())),
     path('news/create', create_post),
     path('news/<int:pk>/edit', PostUpdate.as_view()),
     path('articles/create', create_post),

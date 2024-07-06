@@ -7,10 +7,12 @@
 {% block load %}
     {% load static %}
     {% load custom_filters %}
+    {% load cache %}
     <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
 {% endblock load %}
 
 {% block content %}
+    {% cache 300 nav%}
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
             <div class="container px-4">
                 <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
@@ -19,15 +21,16 @@
                 </div>
             </div>
         </nav>
-        <!-- Header-->
+    {% endcache %}
+
         <section>
             <h2>You signed out</h2>
             <h3><a href="/">Simple SignUp/SignIn app</a></h3>
         </section>
 
-        <!-- About section-->
+    {% cache 300 footer%}
         <footer class="py-5 bg-dark">
             <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
         </footer>
-
+    {% endcache %}
 {% endblock content %}

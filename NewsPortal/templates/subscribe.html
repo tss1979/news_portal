@@ -8,10 +8,12 @@
     {% load static %}
     {% load custom_filters %}
     {% load custom_tags %}
+    {% load cache %}
     <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
 {% endblock load %}
 
 {% block content %}
+    {% cache 300 nav%}
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-lg-5">
                 <a class="navbar-brand" href="#!">News Portal</a>
@@ -25,7 +27,7 @@
                 </div>
             </div>
         </nav>
-
+    {% endcache %}
         <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
             <h1>Subscribe Categories</h1>
             <form action="" method="post">
@@ -34,8 +36,9 @@
                 <input type="submit" value="Save" class="btn btn-primary btn-lg">
             </form>
         </div>
-
+    {% cache 300 footer%}
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
         </footer>
+    {% endcache %}
 {% endblock content %}

@@ -10,7 +10,7 @@ from .forms import PostForm, SubscribeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.shortcuts import redirect
-from django.core.mail import send_mail
+from django.core.cache import cache
 
 
 # Create your views here.
@@ -49,6 +49,13 @@ class PostDetail(DetailView):
     model = Post
     template_name = 'post.html'
     context_object_name = 'post'
+
+    def get_object(self, *args, **kwargs):
+        obj = cache.get(f'product-{self.kwargs["pk"]}', None)
+        if not obj:
+            obj = super().get_object(queryset=self.queryset)
+            cache.set(f'product-{self.kwargs["pk"]}', obj)
+        return obj
 
 
 def subscribe(request):
