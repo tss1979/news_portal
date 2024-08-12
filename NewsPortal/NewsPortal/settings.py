@@ -202,46 +202,46 @@ LOGGING = {
         },
     },
     'handlers': {
-        'console': [{
+        'console_info': {
             'level': 'DEBUG',
             'filters': ['require_debug_true'],
             'class': 'logging.StreamHandler',
             'formatter': 'simple'
         },
-        {
+        'console_warning': {
             'level': 'WARNING',
             'filters': ['require_debug_true'],
             'class': 'logging.StreamHandler',
             'formatter': 'verbose'
         },
-        {
+        'console_error': {
             'level': 'ERROR',
             'filters': ['require_debug_true'],
             'class': 'logging.StreamHandler',
             'formatter': 'special'
         },
-        ],
-        "file":[
-            {
+
+        'file_info': {
                 "level": "INFO",
                 "class": "logging.FileHandler",
                 'filters': ['require_debug_false'],
-                "filename": "/path/to/django/general.log",
+                "filename": "general.log",
                 "formatter": 'file_format'
             },
-            {
+
+        'file_error': {
                 "level": "ERROR",
                 "class": "logging.FileHandler",
-                "filename": "/path/to/django/errors.log",
+                "filename": "errors.log",
                 "formatter": 'special'
             },
-            {
+
+        'file_security': {
                 "level": "ERROR",
                 "class": "logging.FileHandler",
-                "filename": "/path/to/django/security.log",
+                "filename": "security.log",
                 "formatter": 'file_format'
-            }
-        ],
+            },
 
         'mail_admins': {
             "level": 'ERROR',
@@ -252,20 +252,28 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['console', 'file'],
+            'handlers': ['console_info', 'console_warning', 'console_error', 'file_info'],
             'propagate': True,
         },
         'django.request': {
-            'handlers': ['file', 'mail_admins'],
+            'handlers': ['file_error', 'mail_admins'],
             'level': 'ERROR',
             'propagate': False,
         },
         'django.security': {
-            'handlers': ['file'],
+            'handlers': ['file_security'],
             'propagate': False,
         },
         'django.server': {
-            'handlers': ['mail_admins'],
+            'handlers': ['file_error', 'mail_admins'],
+            'propagate': False,
+        },
+        'django.template': {
+            'handlers': ['file_error'],
+            'propagate': False,
+        },
+        'django.db.backends': {
+            'handlers': ['file_error'],
             'propagate': False,
         }
     }
