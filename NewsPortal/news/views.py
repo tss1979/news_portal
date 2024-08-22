@@ -1,6 +1,7 @@
-from django.shortcuts import render, HttpResponseRedirect
+import pytz
+from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django.contrib.auth.mixins import PermissionRequiredMixin
-from django.views.generic import ListView, DetailView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, UpdateView, DeleteView, View
 from django.views.generic.edit import CreateView
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -11,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.shortcuts import redirect
 from django.core.cache import cache
+from django.utils import timezone
 
 
 # Create your views here.
@@ -24,6 +26,8 @@ class PostsList(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['is_not_author'] = not self.request.user.groups.filter(name='authors').exists()
+        context['current_time'] = timezone.now()
+        context['timezones'] = pytz.common_timezones
         return context
 
 
@@ -122,4 +126,13 @@ def upgrade_me(request):
         author = Author.objects.create(user=user)
         author.save()
     return redirect('/news')
+
+
+def set_timezone(request):
+    if request.method == "POST":
+        request.session["django_timezone"] = request.POST["timezone"]
+        return redirect("/news")
+    else:
+        return render(request, "/news")
+
 

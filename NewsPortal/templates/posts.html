@@ -9,46 +9,84 @@
     {% load custom_filters %}
     {% load custom_tags %}
     {% load cache %}
+    {% load i18n %}
+    {% load tz %}
     <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    <style>
+        body {background-color: {% if current_time.hour >= 19 or current_time.hour <= 7 %} darkcyan {% else %} powderblue {% endif %};}
+    </style>
 {% endblock load %}
 
 {% block content %}
-    {% cache 500 nav_header %}
+<!--    {% cache 500 nav_header %}-->
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-lg-5">
-                <a class="navbar-brand" href="#!">News Portal</a>
+                <a class="navbar-brand" href="#!">{% trans "News Portal" %}</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">{% trans "Home" %}</a></li>
                         <li class="nav-item">
                             {% if is_not_author %}
-                                <a class="nav-link" href="upgrade">Be Author</a>
+                                <a class="nav-link" href="upgrade">{% trans "Be Author" %}</a>
                             {% endif %}
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">{% trans "Contact" %}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="logout">{% trans "Logout" %}</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Header-->
+
         <header class="py-5">
+            <div class="container px-lg-5">
+                <form action="{% url 'set_language' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="text" value="{{ redirect_to }}">
+                    <select name="language" id="">
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        {% for language in languages %}
+                            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
+                                {{ language.name_local }} - {{ language.code }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="set">
+                </form>
+                {% get_current_timezone as TIME_ZONE %}
+                <form action="{% url 'set_timezone' %}" method="POST">
+                    {% csrf_token %}
+                    <label for="timezone">Time zone: </label>
+                    <select name="timezone">
+                        {% for tz in timezones %}
+                            <option value="{{ tz }}" {% if tz == TIME_ZONE %} selected {% endif %}>
+                                {{ tz }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="Set">
+                </form>
+
+                {{ TIME_ZONE }}
+                {{ current_time|timezone:TIME_ZONE }}
+            </div>
             <div class="container px-lg-5">
                 <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
                     <div class="m-4 m-lg-5">
-                        <h1 class="display-5 fw-bold">A warm welcome at our News Portal!</h1>
-                        <a class="btn btn-primary btn-lg" href="subscribe">Subscribe to Categories</a>
+                        <h1 class="display-5 fw-bold">{% trans "A warm welcome at our News Portal!" %}</h1>
+                        <a class="btn btn-primary btn-lg" href="subscribe">{% trans "Subscribe to Categories" %}</a>
                     </div>
                 </div>
             </div>
         </header>
         <!-- Page Content-->
-    {% endcache %}
+<!--    {% endcache %}-->
         <section class="pt-4">
             <div class="container px-lg-5">
-                <h2 class="fs-4 fw-bold">All news</h2>
+                <h2 class="fs-4 fw-bold"> {% trans "All news" %} </h2>
                 <!-- Page Features-->
                 <div class="row gx-lg-5">
                        {% if posts %}

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Post, Category, Author
-from django.contrib.auth.models import User
+from modeltranslation.admin import TranslationAdmin
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -21,7 +21,15 @@ class AuthorAdmin(admin.ModelAdmin):
     search_fields = ('user_id__username', 'rating')
 
 
+class PostTranslationAdmin(TranslationAdmin):
+    model = Post
+
+
+class CategoryTranslationAdmin(TranslationAdmin):
+    model = Category
+
+
 # Register your models here.
-admin.site.register(Category, CategoryAdmin)
-admin.site.register(Post, PostAdmin)
+admin.site.register(Category, CategoryAdmin, CategoryTranslationAdmin)
+admin.site.register(Post, PostAdmin, PostTranslationAdmin)
 admin.site.register(Author, AuthorAdmin)

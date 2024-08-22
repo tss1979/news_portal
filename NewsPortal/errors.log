@@ -1,0 +1,1122 @@
+2024-08-19 08:09:13,159 ERROR Internal Server Error: /accounts/google/login/callback/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'AttributeError'>, AttributeError("module 'jwt' has no attribute 'PyJWTError'"), <traceback object at 0x107125740>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/allauth/socialaccount/internal/jwtkit.py", line 71, in verify_and_decode
+    data = jwt.decode(
+AttributeError: module 'jwt' has no attribute 'decode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/allauth/socialaccount/providers/oauth2/views.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/allauth/socialaccount/providers/oauth2/views.py", line 147, in dispatch
+    login = self.adapter.complete_login(
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/allauth/socialaccount/providers/google/views.py", line 82, in complete_login
+    data = self._decode_id_token(app, id_token)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/allauth/socialaccount/providers/google/views.py", line 102, in _decode_id_token
+    return _verify_and_decode(app, id_token, verify_signature=verify_signature)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/allauth/socialaccount/providers/google/views.py", line 60, in _verify_and_decode
+    return jwtkit.verify_and_decode(
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/allauth/socialaccount/internal/jwtkit.py", line 85, in verify_and_decode
+    except jwt.PyJWTError as e:
+AttributeError: module 'jwt' has no attribute 'PyJWTError'
+2024-08-19 08:09:13,167 ERROR "GET /accounts/google/login/callback/?state=apon2FeyF3YnOMJ9&code=4/0AQlEd8xf8Dt60GVbOcOpO3-krSecEBPlsyB-H6c15GxadXNVC700oqQM_K4n6UP5MbIvoA&scope=email%20profile%20openid%20https://www.googleapis.com/auth/userinfo.profile%20https://www.googleapis.com/auth/userinfo.email&authuser=1&prompt=consent HTTP/1.1" 500 105970 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2024-08-19 08:10:15,291 ERROR Internal Server Error: /news/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Invalid block tag on line 53: 'crf_token', expected 'endblock'. Did you forget to register or load this tag?"), <traceback object at 0x107141ec0>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'crf_token'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 53: 'crf_token', expected 'endblock'. Did you forget to register or load this tag?
+2024-08-19 08:10:15,301 ERROR "GET /news/ HTTP/1.1" 500 222901 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2024-08-19 08:12:15,186 ERROR Internal Server Error: /news/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Invalid block tag on line 118: 'endblock', expected 'empty' or 'endfor'. Did you forget to register or load this tag?"), <traceback object at 0x1098e6ec0>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'endblock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 118: 'endblock', expected 'empty' or 'endfor'. Did you forget to register or load this tag?
+2024-08-19 08:12:15,196 ERROR "GET /news/ HTTP/1.1" 500 198527 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2024-08-19 08:13:28,128 ERROR Internal Server Error: /news/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'KeyError'>, KeyError('Unknown language code rus.'), <traceback object at 0x109c5c500>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/translation/__init__.py", line 272, in get_language_info
+    lang_info = LANG_INFO[lang_code]
+KeyError: 'rus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/templatetags/i18n.py", line 50, in render
+    context[self.variable] = [self.get_language_info(lang) for lang in langs]
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/templatetags/i18n.py", line 50, in <listcomp>
+    context[self.variable] = [self.get_language_info(lang) for lang in langs]
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/templatetags/i18n.py", line 44, in get_language_info
+    return translation.get_language_info(language[0])
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/translation/__init__.py", line 279, in get_language_info
+    raise KeyError("Unknown language code %s." % lang_code)
+KeyError: 'Unknown language code rus.'
+2024-08-19 08:13:28,146 ERROR "GET /news/ HTTP/1.1" 500 191472 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2024-08-19 08:13:28,809 ERROR Internal Server Error: /news/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'KeyError'>, KeyError('Unknown language code rus.'), <traceback object at 0x109cf7e00>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/translation/__init__.py", line 272, in get_language_info
+    lang_info = LANG_INFO[lang_code]
+KeyError: 'rus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/templatetags/i18n.py", line 50, in render
+    context[self.variable] = [self.get_language_info(lang) for lang in langs]
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/templatetags/i18n.py", line 50, in <listcomp>
+    context[self.variable] = [self.get_language_info(lang) for lang in langs]
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/templatetags/i18n.py", line 44, in get_language_info
+    return translation.get_language_info(language[0])
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/translation/__init__.py", line 279, in get_language_info
+    raise KeyError("Unknown language code %s." % lang_code)
+KeyError: 'Unknown language code rus.'
+2024-08-19 08:13:28,811 ERROR "GET /news/ HTTP/1.1" 500 191198 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2024-08-19 10:51:02,072 ERROR Internal Server Error: /news/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.base.VariableDoesNotExist'>, VariableDoesNotExist('Failed lookup for key [%s] in %r', ('TIME_ZONE', [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x10583ba00>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x10583bd90>, 'is_not_author': False}])), <traceback object at 0x105f6e7c0>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 880, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 886, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 736, in resolve
+    arg_vals.append(arg.resolve(context))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [TIME_ZONE] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x10583ba00>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x10583bd90>, 'is_not_author': False}]
+2024-08-19 10:51:02,077 ERROR "GET /news/ HTTP/1.1" 500 183559 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2024-08-19 10:51:03,516 ERROR Internal Server Error: /news/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.base.VariableDoesNotExist'>, VariableDoesNotExist('Failed lookup for key [%s] in %r', ('TIME_ZONE', [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x105862fa0>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x1058626a0>, 'is_not_author': False}])), <traceback object at 0x105f3c200>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 880, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 886, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 736, in resolve
+    arg_vals.append(arg.resolve(context))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [TIME_ZONE] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x105862fa0>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x1058626a0>, 'is_not_author': False}]
+2024-08-19 10:51:03,518 ERROR "GET /news/ HTTP/1.1" 500 183285 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2024-08-19 10:53:36,942 ERROR Internal Server Error: /news/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.base.VariableDoesNotExist'>, VariableDoesNotExist('Failed lookup for key [%s] in %r', ('TIME_ZONE', [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x1060623d0>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x106c171f0>, 'is_not_author': False}])), <traceback object at 0x106feb240>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 880, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 886, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 736, in resolve
+    arg_vals.append(arg.resolve(context))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [TIME_ZONE] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x1060623d0>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x106c171f0>, 'is_not_author': False}]
+2024-08-19 10:53:36,947 ERROR "GET /news/ HTTP/1.1" 500 183630 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2024-08-19 10:53:37,828 ERROR Internal Server Error: /news/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.base.VariableDoesNotExist'>, VariableDoesNotExist('Failed lookup for key [%s] in %r', ('TIME_ZONE', [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x106ddcfd0>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x106ddcd00>, 'is_not_author': False}])), <traceback object at 0x106fb3c40>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 880, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 886, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 736, in resolve
+    arg_vals.append(arg.resolve(context))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [TIME_ZONE] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x106ddcfd0>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x106ddcd00>, 'is_not_author': False}]
+2024-08-19 10:53:37,830 ERROR "GET /news/ HTTP/1.1" 500 183356 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2024-08-19 10:53:58,934 ERROR Internal Server Error: /news/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.base.VariableDoesNotExist'>, VariableDoesNotExist('Failed lookup for key [%s] in %r', ('TIME_ZONE', [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x1070ff4c0>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x1070ee220>, 'is_not_author': False}])), <traceback object at 0x1073c8280>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 880, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 886, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 736, in resolve
+    arg_vals.append(arg.resolve(context))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [TIME_ZONE] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x1070ff4c0>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x1070ee220>, 'is_not_author': False}]
+2024-08-19 10:53:58,939 ERROR "GET /news/ HTTP/1.1" 500 183630 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2024-08-19 10:53:59,700 ERROR Internal Server Error: /news/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.base.VariableDoesNotExist'>, VariableDoesNotExist('Failed lookup for key [%s] in %r', ('TIME_ZONE', [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x107394520>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x107182fa0>, 'is_not_author': False}])), <traceback object at 0x107382540>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 880, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 886, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 736, in resolve
+    arg_vals.append(arg.resolve(context))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [TIME_ZONE] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x107394520>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x107182fa0>, 'is_not_author': False}]
+2024-08-19 10:53:59,702 ERROR "GET /news/ HTTP/1.1" 500 183356 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2024-08-19 10:54:34,068 ERROR Internal Server Error: /news/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.base.VariableDoesNotExist'>, VariableDoesNotExist('Failed lookup for key [%s] in %r', ('TIME_ZONE', [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x1074c2fd0>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x1074c2fa0>, 'is_not_author': False}])), <traceback object at 0x107417840>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 880, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 886, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 736, in resolve
+    arg_vals.append(arg.resolve(context))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [TIME_ZONE] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x1074c2fd0>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x1074c2fa0>, 'is_not_author': False}]
+2024-08-19 10:54:34,070 ERROR "GET /news/ HTTP/1.1" 500 183671 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2024-08-19 10:56:57,885 ERROR Internal Server Error: /news/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.base.VariableDoesNotExist'>, VariableDoesNotExist('Failed lookup for key [%s] in %r', ('TIME_ZONE', [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x1036fecd0>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x1038d47c0>, 'is_not_author': False}])), <traceback object at 0x103912300>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 880, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 886, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 736, in resolve
+    arg_vals.append(arg.resolve(context))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [TIME_ZONE] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x1036fecd0>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x1038d47c0>, 'is_not_author': False}]
+2024-08-19 10:56:57,890 ERROR "GET /news/ HTTP/1.1" 500 183600 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2024-08-19 10:58:39,134 ERROR Internal Server Error: /news/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.base.VariableDoesNotExist'>, VariableDoesNotExist('Failed lookup for key [%s] in %r', ('TIME_ZONE', [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x1036ca880>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x1036caf10>, 'is_not_author': False, 'current_time': datetime.datetime(2024, 8, 19, 10, 58, 39, 61742, tzinfo=datetime.timezone.utc)}])), <traceback object at 0x104a94380>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 880, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 886, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 736, in resolve
+    arg_vals.append(arg.resolve(context))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [TIME_ZONE] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x1036ca880>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x1036caf10>, 'is_not_author': False, 'current_time': datetime.datetime(2024, 8, 19, 10, 58, 39, 61742, tzinfo=datetime.timezone.utc)}]
+2024-08-19 10:58:39,140 ERROR "GET /news/ HTTP/1.1" 500 186446 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2024-08-19 10:58:39,726 ERROR Internal Server Error: /news/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.base.VariableDoesNotExist'>, VariableDoesNotExist('Failed lookup for key [%s] in %r', ('TIME_ZONE', [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x104ae5eb0>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x104ae5df0>, 'is_not_author': False, 'current_time': datetime.datetime(2024, 8, 19, 10, 58, 39, 679182, tzinfo=datetime.timezone.utc)}])), <traceback object at 0x104aa85c0>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 880, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 886, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 736, in resolve
+    arg_vals.append(arg.resolve(context))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [TIME_ZONE] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x104ae5eb0>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x104ae5df0>, 'is_not_author': False, 'current_time': datetime.datetime(2024, 8, 19, 10, 58, 39, 679182, tzinfo=datetime.timezone.utc)}]
+2024-08-19 10:58:39,728 ERROR "GET /news/ HTTP/1.1" 500 186201 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2024-08-19 11:04:01,303 ERROR Internal Server Error: /news/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.base.VariableDoesNotExist'>, VariableDoesNotExist('Failed lookup for key [%s] in %r', ('TIME_ZONE', [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x1045ecdf0>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x1045ec0d0>, 'is_not_author': False, 'current_time': datetime.datetime(2024, 8, 19, 11, 4, 1, 222224, tzinfo=datetime.timezone.utc)}])), <traceback object at 0x10455e6c0>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 880, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 886, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 736, in resolve
+    arg_vals.append(arg.resolve(context))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [TIME_ZONE] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x1045ecdf0>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x1045ec0d0>, 'is_not_author': False, 'current_time': datetime.datetime(2024, 8, 19, 11, 4, 1, 222224, tzinfo=datetime.timezone.utc)}]
+2024-08-19 11:04:01,308 ERROR "GET /news/ HTTP/1.1" 500 214608 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2024-08-19 11:05:23,408 ERROR Internal Server Error: /news/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.base.VariableDoesNotExist'>, VariableDoesNotExist('Failed lookup for key [%s] in %r', ('TIME_ZONE', [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x102eb5a30>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x102eb5880>, 'is_not_author': False, 'current_time': datetime.datetime(2024, 8, 19, 11, 5, 23, 326702, tzinfo=datetime.timezone.utc)}])), <traceback object at 0x1038ecb00>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 880, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 886, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 736, in resolve
+    arg_vals.append(arg.resolve(context))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [TIME_ZONE] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x102eb5a30>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x102eb5880>, 'is_not_author': False, 'current_time': datetime.datetime(2024, 8, 19, 11, 5, 23, 326702, tzinfo=datetime.timezone.utc)}]
+2024-08-19 11:05:23,413 ERROR "GET /news/ HTTP/1.1" 500 214795 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2024-08-19 11:05:23,919 ERROR Internal Server Error: /news/ /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.base.VariableDoesNotExist'>, VariableDoesNotExist('Failed lookup for key [%s] in %r', ('TIME_ZONE', [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x103920b50>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x103920370>, 'is_not_author': False, 'current_time': datetime.datetime(2024, 8, 19, 11, 5, 23, 839406, tzinfo=datetime.timezone.utc)}])), <traceback object at 0x1039252c0>)
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 880, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 886, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'TIME_ZONE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 736, in resolve
+    arg_vals.append(arg.resolve(context))
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "/Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/template/base.py", line 903, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [TIME_ZONE] in [{'True': True, 'False': False, 'None': None}, {}, {}, {'paginator': <django.core.paginator.Paginator object at 0x103920b50>, 'page_obj': <Page 1 of 4>, 'is_paginated': True, 'object_list': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'posts': <QuerySet [<Post: Post object (31)>, <Post: Post object (30)>, <Post: Post object (29)>, <Post: Post object (28)>, <Post: Post object (27)>, <Post: Post object (26)>, <Post: Post object (25)>, <Post: Post object (24)>, <Post: Post object (23)>, <Post: Post object (22)>]>, 'view': <news.views.PostsList object at 0x103920370>, 'is_not_author': False, 'current_time': datetime.datetime(2024, 8, 19, 11, 5, 23, 839406, tzinfo=datetime.timezone.utc)}]
+2024-08-19 11:05:23,921 ERROR "GET /news/ HTTP/1.1" 500 214521 /Users/sergeytashkinov/PycharmProjects/new_project_django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
